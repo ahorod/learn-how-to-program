@@ -4,6 +4,19 @@ class Lesson < ActiveRecord::Base
   validates :name, :presence => true
   validates :content, :presence => true
 
+  scope(:not_learned, -> do
+    where({:learned => false})
+  end)
+
+  scope :search, -> (name) { where("name like ?", "%#{name}%")}
+
+  def self.search(name)
+    where("name like ?", "%#{name}%")
+  end
+
+  def self.not_learned
+    where(learned: false)
+  end
 
   define_method(:next) do
     next_lesson = nil

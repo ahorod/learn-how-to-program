@@ -1,3 +1,9 @@
+<nav>
+  <%= form_tag(sections_path, method: :get) do %>
+    <%= text_field_tag :term %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</nav>
 <h1>Sections</h1>
 
 <ul>
