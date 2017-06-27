@@ -8,10 +8,14 @@ class Lesson < ActiveRecord::Base
     where({:learned => false})
   end)
 
-  scope :search, -> (name) { where("name like ?", "%#{name}%")}
+  # scope :search, -> (name) { where("name like ?", "%#{name}%")}
 
-  def self.search(name)
-    where("name like ?", "%#{name}%")
+  def self.search(term)
+    if term
+      where("content Like ?", "%#{term}%").order('number')
+    else
+      order('number')
+    end
   end
 
   def self.not_learned

@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all.order(:number)
+    @lessons = Lesson.search(params[:term])
     render :index
   end
 
