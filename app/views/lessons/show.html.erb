@@ -1,0 +1,10 @@
+<% content_for(:top, "Lesson | Learn how to Program") %>
+
+<h1><%= @lesson.name %></h1>
+<p><%= @lesson.content %></p>
+
+<p><%= link_to "Delete Lesson", lesson_path(@lesson),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to lessons", lessons_path %></p>
