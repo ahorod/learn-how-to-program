@@ -1,9 +1,13 @@
+<nav class="navbar">
+  <span><%= link_to "Previous", lesson_path(@previous_lesson) %></span>
+  <span><%= link_to "Next", lesson_path(@next_lesson) %></span>
+</nav>
 <% content_for(:top, "Lesson | Learn how to Program") %>
 
-<h1><%= @lesson.name %></h1>
+<h1><%= @lesson.number %>. <%= @lesson.name %></h1>
 <p><%= @lesson.content %></p>
 
-<p><%= link_to "Edit", edit_lesson_path(@lesson) %></p> 
+<p><%= link_to "Edit", edit_lesson_path(@lesson) %></p>
 <p><%= link_to "Delete Lesson", lesson_path(@lesson),
                         :data => {:confirm => "Are you sure?",
                                        :method => "delete"} %></p>

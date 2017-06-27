@@ -6,6 +6,8 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
+    @next_lesson = @lesson.next
+    @previous_lesson = @lesson.previous
     render :show
   end
 
