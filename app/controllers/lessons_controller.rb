@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order(:number)
     render :index
   end
 
@@ -45,6 +45,6 @@ class LessonsController < ApplicationController
 
   private
     def lesson_params
-      params.require(:lesson).permit(:name, :content)
+      params.require(:lesson).permit(:name, :content, :number)
     end
 end
